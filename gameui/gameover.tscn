@@ -1,0 +1,309 @@
+[gd_scene load_steps=23 format=3 uid="uid://s33yotd4dbh8"]
+
+[ext_resource type="Script" path="res://gameui/gameover.gd" id="1_o7eru"]
+[ext_resource type="Texture2D" uid="uid://cu48qh4ctofaq" path="res://addons/Tiny Swords/UI/Ribbons/Ribbon_Red_3Slides.png" id="1_rtdja"]
+[ext_resource type="Texture2D" uid="uid://bx1xa65vtyixf" path="res://addons/Tiny Swords/UI/Banners/Banner_Horizontal.png" id="2_tqycp"]
+[ext_resource type="Script" path="res://gameui/button.gd" id="4_mujyo"]
+[ext_resource type="Texture2D" uid="uid://eh3egk2x7osm" path="res://addons/Tiny Swords/Effects/Fire/Fire.png" id="4_usaiw"]
+[ext_resource type="Script" path="res://gameui/Button2.gd" id="6_5k67t"]
+[ext_resource type="Script" path="res://gameui/Label2.gd" id="8_csw0l"]
+
+[sub_resource type="Animation" id="Animation_q58t0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.643137)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("background/topPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(342, 235)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 11)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_e8on0"]
+resource_name = "new_animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.643137)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("background/topPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(386, -209), Vector2(342, 235)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(11, 11), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-4.81711, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32mky"]
+_data = {
+"RESET": SubResource("Animation_q58t0"),
+"new_animation": SubResource("Animation_e8on0")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ultjj"]
+texture = ExtResource("1_rtdja")
+texture_margin_left = 64.0
+texture_margin_right = 64.0
+axis_stretch_horizontal = 2
+region_rect = Rect2(0, 0, 192, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jls7b"]
+font_size = 42
+font_color = Color(0.74902, 0, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ndl1x"]
+texture = ExtResource("2_tqycp")
+texture_margin_left = 32.0
+texture_margin_top = 16.0
+texture_margin_right = 32.0
+texture_margin_bottom = 48.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(32, 48, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6qci"]
+atlas = ExtResource("4_usaiw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mlp8"]
+atlas = ExtResource("4_usaiw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x720u"]
+atlas = ExtResource("4_usaiw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4nv2"]
+atlas = ExtResource("4_usaiw")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fiqq6"]
+atlas = ExtResource("4_usaiw")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5163x"]
+atlas = ExtResource("4_usaiw")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86cm2"]
+atlas = ExtResource("4_usaiw")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lpih2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6qci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mlp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x720u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4nv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fiqq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5163x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86cm2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_681dy"]
+
+[node name="gameover" type="CanvasLayer"]
+script = ExtResource("1_o7eru")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_32mky")
+}
+autoplay = "new_animation"
+
+[node name="background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = 5.0
+offset_right = 10.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.643137)
+
+[node name="topPanel" type="Panel" parent="background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 342.0
+offset_top = 235.0
+offset_right = 836.999
+offset_bottom = 339.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ultjj")
+
+[node name="Label" type="Label" parent="background/topPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.5
+offset_top = 8.0
+offset_right = 120.5
+offset_bottom = 66.0
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_jls7b")
+
+[node name="bottomPanel" type="Panel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -221.0
+offset_top = -165.0
+offset_right = 221.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ndl1x")
+script = ExtResource("4_mujyo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bottomPanel"]
+position = Vector2(59, 61)
+sprite_frames = SubResource("SpriteFrames_lpih2")
+autoplay = "default"
+frame_progress = 0.30255
+
+[node name="Button" type="Button" parent="bottomPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.5
+offset_top = -38.5
+offset_right = 153.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.843137, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 0.74902)
+theme_override_colors/font_hover_color = Color(0.756863, 0, 0.486275, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_681dy")
+text = "RESTART?
+"
+flat = true
+script = ExtResource("6_5k67t")
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -232.0
+offset_right = 116.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(11, 11)
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_jls7b")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_csw0l")
